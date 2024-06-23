@@ -1,18 +1,18 @@
-import React, { memo } from "react";
 import GroupDto from "../models/groupDto";
-import ReactFlow, { Handle, NodeProps, Position } from "reactflow";
+import { Handle, NodeProps, Position } from "reactflow";
 import Book from "../components/Book";
-import BookDto from "../models/bookDto";
 
 function GroupNode(props: NodeProps) {
   let group: GroupDto = props.data.group;
   return (
-    <div className="container px-4 py-2 pb-6 shadow-md rounded-md bg-white border-2 border-stone-400">
-      {group.name}
-      <ul className="flex flex-row flex-wrap">
+    <div className="container px-4 py-2 pb-10 shadow-md rounded-md bg-white border-2 border-stone-400">
+      <p className="font-bold text-lg">{group.name}</p>
+      <ul className="flex flex-row">
         {group.books.map((b) => (
           <li>
-            <Book key={b.name} book={b}></Book>
+            <a href={b.sourceUrl} target="_blank">
+              <Book key={b.name} book={b}></Book>
+            </a>
           </li>
         ))}
       </ul>
@@ -23,4 +23,4 @@ function GroupNode(props: NodeProps) {
   );
 }
 
-export default memo(GroupNode);
+export default GroupNode;

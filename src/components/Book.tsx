@@ -8,7 +8,7 @@ function Book({ book }: BookProps) {
     <>
       <div className="size-40">
         <img src={book.image} className="size-full px-1" />
-        <p className="font-medium text-base">{book.name}</p>
+        <p className="font-thin text-xs">{book.name}</p>
       </div>
     </>
   );
