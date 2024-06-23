@@ -1,4 +1,4 @@
-import Book from "./book.tsx";
+import Book from "./bookDto.tsx";
 
 class GroupDto {
   id: number;

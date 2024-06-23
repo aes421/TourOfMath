@@ -1,11 +1,12 @@
 import "./App.css";
-import ReactFlow, { MiniMap, Controls, Node, NodeTypes } from "reactflow";
-import Group from "./nodes/Group";
+import ReactFlow, { MiniMap, Controls, NodeTypes, Node, Edge } from "reactflow";
 import GroupDto from "./models/groupDto";
+import elementaryAlgebraImg from "./assets/elementary-algebra.jpg";
+import preAlgebraImg from "./assets/pre-algebra.jpg";
 
 import "reactflow/dist/style.css";
-import Book from "./components/Book";
 import BookDto from "./models/bookDto";
+import GroupNode from "./nodes/GroupNode";
 
 function App() {
   //   const groups = [
@@ -24,35 +25,65 @@ function App() {
   //   });
 
   const nodeTypes: NodeTypes = {
-    group: Group,
+    groupNode: GroupNode,
   };
 
   let g0 = new GroupDto(0, 0, "group0", [
-    new BookDto("Hello", "", ""),
-    new BookDto("World", "", ""),
+    new BookDto("Pre-Algebra", preAlgebraImg, "", ""),
+    new BookDto("Pre-Algebra", preAlgebraImg, "", ""),
+    new BookDto("Pre-Algebra", preAlgebraImg, "", ""),
+    new BookDto("Pre-Algebra", preAlgebraImg, "", ""),
+    new BookDto("Pre-Algebra", preAlgebraImg, "", ""),
+    new BookDto("Pre-Algebra", preAlgebraImg, "", ""),
   ]);
+
+  let g1 = new GroupDto(0, 0, "group0", [
+    new BookDto("Elementary Algebra", elementaryAlgebraImg, "", ""),
+  ]);
+
+  let g2 = new GroupDto(0, 0, "group0", [
+    new BookDto("Elementary Algebra", elementaryAlgebraImg, "", ""),
+  ]);
+
   const groupNodes = [
     {
-      type: "group",
+      type: "groupNode",
       id: "0",
       position: { x: 0, y: 0 },
       data: { group: g0 },
     },
-    { id: "1", position: { x: 200, y: 0 }, data: { label: "group1" } },
-    { id: "2", position: { x: 0, y: 200 }, data: { label: "group2" } },
+    {
+      type: "groupNode",
+      id: "1",
+      position: { x: 0, y: 300 },
+      data: { group: g1 },
+    },
+    {
+      type: "groupNode",
+      id: "2",
+      position: { x: 500, y: 300 },
+      data: { group: g2 },
+    },
   ];
 
-  const groupEdges = [{ id: "e1-3", source: "0", target: "2" }];
+  const groupEdges = [
+    { id: "e0-1", source: "0", target: "1" },
+    { id: "e0-2", source: "0", target: "2" },
+  ];
 
   return (
-    <>
-      <div style={{ width: "100vw", height: "100vh" }}>
-        <ReactFlow nodes={groupNodes} edges={groupEdges} nodeTypes={nodeTypes}>
-          <Controls />
-          <MiniMap />
-        </ReactFlow>
-      </div>
-    </>
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <ReactFlow
+        nodes={groupNodes}
+        edges={groupEdges}
+        nodeTypes={nodeTypes}
+        fitView
+        className="bg-teal-50"
+      >
+        <MiniMap />
+        <Controls />
+      </ReactFlow>
+    </div>
   );
 }
 

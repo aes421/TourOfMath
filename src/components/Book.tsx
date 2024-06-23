@@ -6,7 +6,10 @@ interface BookProps {
 function Book({ book }: BookProps) {
   return (
     <>
-      <h1>{book.name}</h1>
+      <div className="size-40">
+        <img src={book.image} className="size-full px-1" />
+        <p className="font-medium text-base">{book.name}</p>
+      </div>
     </>
   );
 }
