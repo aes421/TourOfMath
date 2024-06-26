@@ -1,9 +1,18 @@
 import "./App.css";
-import ReactFlow, { MiniMap, Controls, NodeTypes, Node, Edge } from "reactflow";
+import { useEffect, useState } from "react";
+import ReactFlow, {
+  MiniMap,
+  Controls,
+  NodeTypes,
+  Node,
+  Edge,
+  Position,
+} from "reactflow";
 
 import "reactflow/dist/style.css";
 import GroupNode from "./nodes/GroupNode";
 import { algebra, discreteMath } from "./data/groupData";
+import dagre from "dagre";
 
 function App() {
   const nodeTypes: NodeTypes = {
@@ -20,13 +29,13 @@ function App() {
     {
       type: "groupNode",
       id: "1",
-      position: { x: 400, y: 0 },
+      position: { x: 0, y: 0 },
       data: { group: discreteMath },
     },
     {
       type: "groupNode",
       id: "2",
-      position: { x: 300, y: 300 },
+      position: { x: 0, y: 0 },
       data: { group: discreteMath },
     },
   ];
@@ -36,10 +45,45 @@ function App() {
     { id: "e0-2", source: "1", target: "2" },
   ];
 
+  const nodeWidth = 356;
+  const nodeHeight = 240;
+  const getLayoutedNodes = (nodes: Node[], edges: Edge[]) => {
+    const g = new dagre.graphlib.Graph();
+    g.setGraph({});
+    g.setDefaultEdgeLabel(() => ({}));
+
+    nodes.forEach((node) => {
+      g.setNode(node.id, { width: nodeWidth, height: nodeHeight });
+    });
+
+    edges.forEach((edge) => {
+      g.setEdge(edge.source, edge.target);
+    });
+
+    dagre.layout(g);
+
+    return nodes.map((node) => {
+      const { x, y } = g.node(node.id);
+      return {
+        ...node,
+        position: { x, y },
+        sourcePosition: Position.Bottom,
+        targetPosition: Position.Top,
+      };
+    });
+  };
+
+  const [nodes, setNodes] = useState<Node[]>(groupNodes);
+
+  useEffect(() => {
+    const layoutedNodes = getLayoutedNodes(nodes, groupEdges);
+    setNodes(layoutedNodes);
+  }, []);
+
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <ReactFlow
-        nodes={groupNodes}
+        nodes={nodes}
         edges={groupEdges}
         nodeTypes={nodeTypes}
         fitView
