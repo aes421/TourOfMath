@@ -19,33 +19,47 @@ function App() {
     groupNode: GroupNode,
   };
 
+  const position = { x: 0, y: 0 };
+
   const groupNodes: Node[] = [
     {
       type: "groupNode",
       id: "0",
-      position: { x: 0, y: 0 },
+      position: position,
       data: { group: algebra },
     },
     {
       type: "groupNode",
       id: "1",
-      position: { x: 0, y: 0 },
+      position: position,
       data: { group: discreteMath },
     },
     {
       type: "groupNode",
       id: "2",
-      position: { x: 0, y: 0 },
+      position: position,
       data: { group: discreteMath },
     },
   ];
 
   const groupEdges: Edge[] = [
-    { id: "e0-1", source: "0", target: "2" },
-    { id: "e0-2", source: "1", target: "2" },
+    {
+      id: "e0-1",
+      source: "0",
+      target: "2",
+      animated: true,
+      type: "simplebezier",
+    },
+    {
+      id: "e0-2",
+      source: "1",
+      target: "2",
+      animated: true,
+      type: "simplebezier",
+    },
   ];
 
-  const nodeWidth = 356;
+  const bookWidth = 160;
   const nodeHeight = 240;
   const getLayoutedNodes = (nodes: Node[], edges: Edge[]) => {
     const g = new dagre.graphlib.Graph();
@@ -53,7 +67,10 @@ function App() {
     g.setDefaultEdgeLabel(() => ({}));
 
     nodes.forEach((node) => {
-      g.setNode(node.id, { width: nodeWidth, height: nodeHeight });
+      g.setNode(node.id, {
+        width: bookWidth * node.data.group.books.length + 36, // TODO - find better way
+        height: nodeHeight,
+      });
     });
 
     edges.forEach((edge) => {
