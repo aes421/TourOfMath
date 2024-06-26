@@ -3,12 +3,12 @@ import BookDto from "../models/bookDto";
 import elementaryAlgebraImg from "../assets/elementary-algebra.jpg";
 import preAlgebraImg from "../assets/pre-algebra.jpg";
 
-export const algebra = new GroupDto(0, 0, "Algebra", [
+const algebra = new GroupDto(0, 0, "Algebra", [
   new BookDto("Pre-Algebra Mathematics", preAlgebraImg, "", 28, ""),
   new BookDto("Elementary Algebra", elementaryAlgebraImg, "", 48, ""),
 ]);
 
-export const discreteMath = new GroupDto(1, 0, "Discrete Math", [
+const discreteMath = new GroupDto(1, 0, "Discrete Math", [
   new BookDto(
     "Discrete Mathematical Structures",
     elementaryAlgebraImg,
@@ -31,3 +31,12 @@ export const discreteMath = new GroupDto(1, 0, "Discrete Math", [
     ""
   ),
 ]);
+
+const temp = new GroupDto(2, 0, "Algebra", [
+  new BookDto("Pre-Algebra Mathematics", preAlgebraImg, "", 28, ""),
+  new BookDto("Elementary Algebra", elementaryAlgebraImg, "", 48, ""),
+]);
+
+algebra.addEdge(temp);
+discreteMath.addEdge(temp);
+export const subjects = [algebra, discreteMath, temp];

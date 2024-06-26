@@ -11,7 +11,7 @@ import ReactFlow, {
 
 import "reactflow/dist/style.css";
 import GroupNode from "./nodes/GroupNode";
-import { algebra, discreteMath } from "./data/groupData";
+import { subjects } from "./data/groupData";
 import dagre from "dagre";
 
 function App() {
@@ -21,43 +21,27 @@ function App() {
 
   const position = { x: 0, y: 0 };
 
-  const groupNodes: Node[] = [
-    {
+  const groupNodes: Node[] = subjects.map((s): Node => {
+    return {
       type: "groupNode",
-      id: "0",
+      id: s.id.toString(),
       position: position,
-      data: { group: algebra },
-    },
-    {
-      type: "groupNode",
-      id: "1",
-      position: position,
-      data: { group: discreteMath },
-    },
-    {
-      type: "groupNode",
-      id: "2",
-      position: position,
-      data: { group: discreteMath },
-    },
-  ];
+      data: { group: s },
+    };
+  });
 
-  const groupEdges: Edge[] = [
-    {
-      id: "e0-1",
-      source: "0",
-      target: "2",
-      animated: true,
-      type: "simplebezier",
-    },
-    {
-      id: "e0-2",
-      source: "1",
-      target: "2",
-      animated: true,
-      type: "simplebezier",
-    },
-  ];
+  let groupEdges: Edge[] = [];
+  subjects.forEach((s) => {
+    s.edges.forEach((e) => {
+      groupEdges.push({
+        id: `${s.id}-${e}`,
+        source: s.id.toString(),
+        target: e.toString(),
+        animated: true,
+        type: "simplebezier",
+      });
+    });
+  });
 
   const bookWidth = 160;
   const nodeHeight = 240;
