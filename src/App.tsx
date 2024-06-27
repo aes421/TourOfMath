@@ -93,7 +93,7 @@ function App() {
         edges={groupEdges}
         nodeTypes={nodeTypes}
         className="bg-slate-300"
-        minZoom={0.2}
+        minZoom={0.1}
         fitView={true}
       >
         <MiniMap />
