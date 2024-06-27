@@ -401,4 +401,5 @@ export const subjects = [
   numberTheory,
   graphTheory,
   topology,
+  misc,
 ];
