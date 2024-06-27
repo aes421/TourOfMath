@@ -2,6 +2,78 @@ import GroupDto from "../models/groupDto";
 import BookDto from "../models/bookDto";
 import elementaryAlgebraImg from "../assets/elementary-algebra.jpg";
 import preAlgebraImg from "../assets/pre-algebra.jpg";
+import discreteMathStructuresImg from "../assets/discreteMathStructuresImg.jpg";
+import concreteMathImg from "../assets/concreteMathImg.jpg";
+import discreteMathAppsImg from "../assets/discreteMathAppsImg.jpg";
+import discreteCombinatorialImg from "../assets/discreteCombinatorialImg.jpg";
+import foundationsHigherMathImg from "../assets/foundationsHigherMathImg.jpg";
+import howToProveItImg from "../assets/howToProveItImg.jpg";
+import introAbstractMathImg from "../assets/introAbstractMathImg.jpg";
+import howToReadDoProofsImg from "../assets/howToReadDoProofsImg.jpg";
+import precalculusStewartImg from "../assets/precalculusStewartImg.jpg";
+import collegeAlgebraImg from "../assets/collegeAlgebraImg.jpg";
+import graphicalApproachImg from "../assets/graphicalApproachImg.jpg";
+import algebraTrigonometryStewartImg from "../assets/algebraTrigonometryStewartImg.jpg";
+import algebraTrigonometrySullivanImg from "../assets/algebraTrigonometrySullivanImg.jpg";
+import trigonometryOutlineImg from "../assets/trigonometryOutlineImg.jpg";
+import algebraTrigonometryCameronImg from "../assets/algebraTrigonometryCameronImg.jpg";
+import preCalculusShanksImg from "../assets/preCalculusShanksImg.jpg";
+import trigonometryMcMullenImg from "../assets/trigonometryMcMullenImg.jpg";
+import planeTrigonometryImg from "../assets/planeTrigonometryImg.jpg";
+import geometryImg from "../assets/geometryImg.jpg";
+import calculusSwokowskiImg from "../assets/calculusSwokowskiImg.jpg";
+import calculusLarsonImg from "../assets/calculusLarsonImg.jpg";
+import thomasCalculusImg from "../assets/thomasCalculusImg.jpg";
+import calculusStewartImg from "../assets/calculusStewartImg.jpg";
+import calculusMcMullenImg from "../assets/calculusMcMullenImg.jpg";
+import calculusMultipleVariablesImg from "../assets/calculusMultipleVariablesImg.jpg";
+import schaumsDEImg from "../assets/schaumsDEImg.jpg";
+import diffEquationsNagleImg from "../assets/diffEquationsNagleImg.jpg";
+import diffEquationsZillImg from "../assets/diffEquationsZillImg.jpg";
+import schaumsProbStatsImg from "../assets/schaumsProbStatsImg.jpg";
+import elementaryStatsImg from "../assets/elementaryStatsImg.jpg";
+import mathStatsDataAnalysisImg from "../assets/mathStatsDataAnalysisImg.jpg";
+import firstCourseProbabilityImg from "../assets/firstCourseProbabilityImg.jpg";
+import schaumsLinearAlgebraImg from "../assets/schaumsLinearAlgebraImg.jpg";
+import elementaryLinearAlgebraImg from "../assets/elementaryLinearAlgebraImg.jpg";
+import linearAlgebraHoffmanImg from "../assets/linearAlgebraHoffmanImg.jpg";
+import linearAlgebraFriedbergImg from "../assets/linearAlgebraFriedbergImg.jpg";
+import schaumsComplexVariablesImg from "../assets/schaumsComplexVariablesImg.jpg";
+import complexVariablesBrownChurchillImg from "../assets/complexVariablesBrownChurchillImg.jpg";
+import fundamentalsComplexAnalysisImg from "../assets/fundamentalsComplexAnalysisImg.jpg";
+import appliedComplexVariablesImg from "../assets/appliedComplexVariablesImg.jpg";
+import complexVariablesAblowitzFokasImg from "../assets/complexVariablesAblowitzFokasImg.jpg";
+import introPartialDiffEquationsImg from "../assets/introPartialDiffEquationsImg.jpg";
+import partialDiffEquationsStraussImg from "../assets/partialDiffEquationsStraussImg.jpg";
+import schaumsPartialDiffEquationsImg from "../assets/schaumsPartialDiffEquationsImg.jpg";
+import partialDiffEquationsMillerImg from "../assets/partialDiffEquationsMillerImg.jpg";
+import firstCourseAbstractAlgebraImg from "../assets/firstCourseAbstractAlgebraImg.jpg";
+import contemporaryAbstractAlgebraImg from "../assets/contemporaryAbstractAlgebraImg.jpg";
+import abstractAlgebraSaracinoImg from "../assets/abstractAlgebraSaracinoImg.jpg";
+import abstractAlgebraBeachyBlairImg from "../assets/abstractAlgebraBeachyBlairImg.jpg";
+import abstractAlgebraDummitFooteImg from "../assets/abstractAlgebraDummitFooteImg.jpg";
+import algebraArtinImg from "../assets/algebraArtinImg.jpg";
+import algebraLangImg from "../assets/algebraLangImg.jpg";
+import principlesMathAnalysisImg from "../assets/principlesMathAnalysisImg.jpg";
+import advancedCalculusImg from "../assets/advancedCalculusImg.jpg";
+import introRealAnalysisImg from "../assets/introRealAnalysisImg.jpg";
+import analysisLangImg from "../assets/analysisLangImg.jpg";
+import understandingAnalysisImg from "../assets/understandingAnalysisImg.jpg";
+import advancedCalculusBuckImg from "../assets/advancedCalculusBuckImg.jpg";
+import numberTheoryLongImg from "../assets/numberTheoryLongImg.jpg";
+import numberTheoryAndrewsImg from "../assets/numberTheoryAndrewsImg.jpg";
+import numberTheoryDudleyImg from "../assets/numberTheoryDudleyImg.jpg";
+import graphTheoryImg from "../assets/graphTheoryImg.jpg";
+import schaumsTopologyImg from "../assets/schaumsTopologyImg.jpg";
+import topologyMendelsonImg from "../assets/topologyMendelsonImg.jpg";
+import topologyGamelineGreeneImg from "../assets/topologyGamelineGreeneImg.jpg";
+import topologyMunkresImg from "../assets/topologyMunkresImg.jpg";
+import mathYouMissedImg from "../assets/mathYouMissedImg.jpg";
+import cryptographyImg from "../assets/cryptographyImg.jpg";
+import advancedEngineeringMathImg from "../assets/advancedEngineeringMathImg.jpg";
+import realComplexAnalysisImg from "../assets/realComplexAnalysisImg.jpg";
+import functionalAnalysisImg from "../assets/functionalAnalysisImg.jpg";
+import basicMathImg from "../assets/basicMathImg.jpg";
 
 const algebra = new GroupDto(0, "Algebra", [
   new BookDto("Pre-Algebra Mathematics", preAlgebraImg, 0, 36),
@@ -63,7 +135,7 @@ const preCalculusTrigonometry = new GroupDto(3, "Pre-Calculus/Trigonometry", [
     7,
     25
   ),
-  new BookDto("Trigonometry", trigonometryOutlineImg, 7, 43),
+  new BookDto("Schaum's Outlines Trigonometry", trigonometryOutlineImg, 7, 43),
   new BookDto("Algebra and Trigonometry", algebraTrigonometryCameronImg, 8, 5),
   new BookDto("Pre-Calculus Mathematics", preCalculusShanksImg, 8, 20),
   new BookDto("Trigonometry", trigonometryMcMullenImg, 8, 48),
@@ -72,7 +144,7 @@ const preCalculusTrigonometry = new GroupDto(3, "Pre-Calculus/Trigonometry", [
 
 const calculus = new GroupDto(4, "Calculus", [
   new BookDto("Calculus With Analytic Geometry", calculusSwokowskiImg, 10, 17),
-  new BookDto("Calculus", calculusLarsonImg, 10, 39),
+  new BookDto("Calculus of a Single Variable", calculusLarsonImg, 10, 39),
   new BookDto("Thomas' Calculus", thomasCalculusImg, 10, 58),
   new BookDto("Calculus", calculusStewartImg, 11, 26),
   new BookDto("Essential Calculus Workbook", calculusMcMullenImg, 12, 0),
@@ -140,7 +212,12 @@ const complexVariables = new GroupDto(9, "Complex Variables", [
     18,
     52
   ),
-  new BookDto("Complex Variables", complexVariablesBrownChurchillImg, 19, 19),
+  new BookDto(
+    "Complex Variables and Applications",
+    complexVariablesBrownChurchillImg,
+    19,
+    19
+  ),
   new BookDto(
     "Fundamentals of Complex Analysis ",
     fundamentalsComplexAnalysisImg,
@@ -195,7 +272,12 @@ const abstractAlgebra = new GroupDto(11, "Abstract Algebra", [
     22,
     57
   ),
-  new BookDto("Abstract Algebra", abstractAlgebraSaracinoImg, 23, 27),
+  new BookDto(
+    "Abstract Algebra A First Course",
+    abstractAlgebraSaracinoImg,
+    23,
+    27
+  ),
   new BookDto(
     "Abstract Algebra with a Concrete Introduction",
     abstractAlgebraBeachyBlairImg,
@@ -234,7 +316,7 @@ const numberTheory = new GroupDto(13, "Number Theory", [
     14
   ),
   new BookDto("Number Theory", numberTheoryAndrewsImg, 28, 14),
-  new BookDto("Elementary Number Theory)", numberTheoryDudleyImg, 28, 14),
+  new BookDto("Elementary Number Theory", numberTheoryDudleyImg, 28, 14),
 ]);
 
 const graphTheory = new GroupDto(14, "Graph Theory", [
@@ -268,15 +350,15 @@ const misc = new GroupDto(16, "Misc", [
   new BookDto("Basic Mathematics", basicMathImg, 35, 6),
 ]);
 
-// preCalculusTrigonometry.addEdge(calculus);
-// calculus.addEdge(differentialEquations);
-// calculus.addEdge(probabilityStatistics);
-// proofWriting.addEdge(linearAlgebra);
-// differentialEquations.addEdge(partialDifferentialEquations);
-// differentialEquations.addEdge(linearAlgebra);
-// calculus.addEdge(realAnalysis);
-// proofWriting.addEdge(topology);
-// realAnalysis.addEdge(topology);
+preCalculusTrigonometry.addEdge(calculus);
+calculus.addEdge(differentialEquations);
+calculus.addEdge(probabilityStatistics);
+proofWriting.addEdge(linearAlgebra);
+differentialEquations.addEdge(partialDifferentialEquations);
+differentialEquations.addEdge(linearAlgebra);
+calculus.addEdge(realAnalysis);
+proofWriting.addEdge(topology);
+realAnalysis.addEdge(topology);
 
 export const subjects = [
   algebra,
@@ -286,8 +368,9 @@ export const subjects = [
   calculus,
   differentialEquations,
   probabilityStatistics,
+  geometry,
   linearAlgebra,
-  differentialEquations,
+  complexVariables,
   partialDifferentialEquations,
   abstractAlgebra,
   realAnalysis,
