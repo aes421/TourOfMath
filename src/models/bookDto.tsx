@@ -4,22 +4,18 @@ class BookDto {
 
   name: string;
   image: string;
-  amazonUrl: string;
   sourceUrl: string;
-  notes: string;
 
   constructor(
     name: string,
     image: string,
-    amazonUrl: string,
-    sourceSeconds: number,
-    notes: string
+    sourceMinutes: number,
+    sourceSeconds: number
   ) {
     this.name = name;
     this.image = image;
-    this.amazonUrl = amazonUrl;
-    this.sourceUrl = this.sourceBaseUrl + "&t=" + sourceSeconds;
-    this.notes = notes;
+    this.sourceUrl =
+      this.sourceBaseUrl + "&t=" + (sourceMinutes * 60 + sourceSeconds);
   }
 }
 
