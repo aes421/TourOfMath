@@ -86,18 +86,20 @@ function App() {
   }, []);
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <>
+      <h1 className="bg-slate-300">Math Skill Tree</h1>
       <ReactFlow
         nodes={nodes}
         edges={groupEdges}
         nodeTypes={nodeTypes}
-        fitView
         className="bg-slate-300"
+        minZoom={0.2}
+        fitView={true}
       >
         <MiniMap />
         <Controls />
       </ReactFlow>
-    </div>
+    </>
   );
 }
 
