@@ -4,17 +4,17 @@ class GroupDto {
   id: number;
   name: string;
   books: Book[];
-  edges: number[];
+  prereqs: number[];
 
   constructor(id: number, name: string, books: Book[]) {
     this.id = id;
     this.name = name;
     this.books = books;
-    this.edges = [];
+    this.prereqs = [];
   }
 
-  addEdge(target: GroupDto) {
-    this.edges.push(target.id);
+  requires(target: GroupDto) {
+    this.prereqs.push(target.id);
   }
 }
 

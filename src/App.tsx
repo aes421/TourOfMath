@@ -32,19 +32,19 @@ function App() {
 
   let groupEdges: Edge[] = [];
   subjects.forEach((s) => {
-    s.edges.forEach((e) => {
+    s.prereqs.forEach((e) => {
       groupEdges.push({
         id: `${s.id}-${e}`,
-        source: s.id.toString(),
-        target: e.toString(),
+        target: s.id.toString(),
+        source: e.toString(),
         animated: true,
         type: "simplebezier",
       });
     });
   });
 
-  const bookWidth = 160;
-  const nodeHeight = 240;
+  const bookWidth = 180;
+  const nodeHeight = 300;
   const getLayoutedNodes = (nodes: Node[], edges: Edge[]) => {
     const g = new dagre.graphlib.Graph();
     g.setGraph({});
@@ -52,6 +52,11 @@ function App() {
 
     console.log(nodes);
     nodes.forEach((node) => {
+      console.log(
+        node.data.group.name +
+          " width: " +
+          (node.data.group.books.length * bookWidth + 36)
+      );
       g.setNode(node.id, {
         width: bookWidth * node.data.group.books.length + 36, // TODO - find better way
         height: nodeHeight,

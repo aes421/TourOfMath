@@ -350,15 +350,33 @@ const misc = new GroupDto(16, "Misc", [
   new BookDto("Basic Mathematics", basicMathImg, 35, 6),
 ]);
 
-preCalculusTrigonometry.addEdge(calculus);
-calculus.addEdge(differentialEquations);
-calculus.addEdge(probabilityStatistics);
-proofWriting.addEdge(linearAlgebra);
-differentialEquations.addEdge(partialDifferentialEquations);
-differentialEquations.addEdge(linearAlgebra);
-calculus.addEdge(realAnalysis);
-proofWriting.addEdge(topology);
-realAnalysis.addEdge(topology);
+preCalculusTrigonometry.requires(algebra);
+calculus.requires(preCalculusTrigonometry);
+differentialEquations.requires(calculus);
+partialDifferentialEquations.requires(differentialEquations);
+
+probabilityStatistics.requires(calculus);
+probabilityStatistics.requires(discreteMath);
+probabilityStatistics.requires(linearAlgebra);
+
+linearAlgebra.requires(algebra);
+
+complexVariables.requires(realAnalysis);
+complexVariables.requires(linearAlgebra);
+
+abstractAlgebra.requires(proofWriting);
+
+realAnalysis.requires(calculus);
+realAnalysis.requires(proofWriting);
+
+graphTheory.requires(proofWriting);
+graphTheory.requires(linearAlgebra);
+// graphTheory.requires(discreteMath); // maybe
+
+topology.requires(realAnalysis);
+// topology.requires(discreteMath); // maybe
+
+numberTheory.requires(abstractAlgebra);
 
 export const subjects = [
   algebra,
