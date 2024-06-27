@@ -39,6 +39,9 @@ function App() {
         source: e.toString(),
         animated: true,
         type: "simplebezier",
+        style: {
+          strokeWidth: 3,
+        },
       });
     });
   });
@@ -52,11 +55,6 @@ function App() {
 
     console.log(nodes);
     nodes.forEach((node) => {
-      console.log(
-        node.data.group.name +
-          " width: " +
-          (node.data.group.books.length * bookWidth + 36)
-      );
       g.setNode(node.id, {
         width: bookWidth * node.data.group.books.length + 36, // TODO - find better way
         height: nodeHeight,
@@ -94,7 +92,7 @@ function App() {
         edges={groupEdges}
         nodeTypes={nodeTypes}
         fitView
-        className="bg-teal-50"
+        className="bg-slate-300"
       >
         <MiniMap />
         <Controls />

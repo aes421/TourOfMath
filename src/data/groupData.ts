@@ -356,25 +356,31 @@ differentialEquations.requires(calculus);
 partialDifferentialEquations.requires(differentialEquations);
 
 probabilityStatistics.requires(calculus);
-probabilityStatistics.requires(discreteMath);
+//probabilityStatistics.requires(discreteMath);
 probabilityStatistics.requires(linearAlgebra);
+
+discreteMath.requires(proofWriting);
 
 linearAlgebra.requires(algebra);
 
 complexVariables.requires(realAnalysis);
-complexVariables.requires(linearAlgebra);
+//complexVariables.requires(linearAlgebra);
 
-abstractAlgebra.requires(proofWriting);
+//abstractAlgebra.requires(proofWriting);
+abstractAlgebra.requires(discreteMath);
+abstractAlgebra.requires(linearAlgebra);
 
 realAnalysis.requires(calculus);
+realAnalysis.requires(linearAlgebra);
 realAnalysis.requires(proofWriting);
 
-graphTheory.requires(proofWriting);
-graphTheory.requires(linearAlgebra);
-// graphTheory.requires(discreteMath); // maybe
+//graphTheory.requires(proofWriting);
+// graphTheory.requires(linearAlgebra);
+//graphTheory.requires(discreteMath); // maybe
+graphTheory.requires(abstractAlgebra);
 
 topology.requires(realAnalysis);
-// topology.requires(discreteMath); // maybe
+topology.requires(discreteMath); // maybe
 
 numberTheory.requires(abstractAlgebra);
 
@@ -395,5 +401,4 @@ export const subjects = [
   numberTheory,
   graphTheory,
   topology,
-  misc,
 ];
