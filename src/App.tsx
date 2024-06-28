@@ -53,7 +53,6 @@ function App() {
     g.setGraph({});
     g.setDefaultEdgeLabel(() => ({}));
 
-    console.log(nodes);
     nodes.forEach((node) => {
       g.setNode(node.id, {
         width: bookWidth * node.data.group.books.length + 600, // TODO - find better way

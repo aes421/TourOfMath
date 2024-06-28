@@ -13,9 +13,9 @@ Get-ChildItem *.webp | ForEach-Object {
     # echo $inputImage
     # echo $outputImage
     #Run the ImageMagick command to resize the image and convert it to .webp
-    if ( $Width -gt 300 -or $Height -gt 500 ) {
+    if ( $Width -gt 200 -or $Height -gt 300 ) {
         echo "resize"
-        magick $inputImage -resize 300x500 $outputImage
+        magick $inputImage -resize 200x300 $outputImage
     }
     else {
         magick $inputImage $outputImage

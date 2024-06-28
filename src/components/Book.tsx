@@ -7,7 +7,11 @@ function Book({ book }: BookProps) {
   return (
     <>
       <div className="size-40">
-        <img src={book.image} className="size-full px-1" />
+        <img
+          src={book.image}
+          alt={"image of" + book.name}
+          className="size-full px-1"
+        />
         <p className="font-thin text-xs">{book.name}</p>
       </div>
     </>
