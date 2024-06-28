@@ -46,7 +46,7 @@ function App() {
     });
   });
 
-  const bookWidth = 180;
+  const bookWidth = 50;
   const nodeHeight = 300;
   const getLayoutedNodes = (nodes: Node[], edges: Edge[]) => {
     const g = new dagre.graphlib.Graph();
@@ -56,7 +56,7 @@ function App() {
     console.log(nodes);
     nodes.forEach((node) => {
       g.setNode(node.id, {
-        width: bookWidth * node.data.group.books.length + 36, // TODO - find better way
+        width: bookWidth * node.data.group.books.length + 600, // TODO - find better way
         height: nodeHeight,
       });
     });
@@ -68,7 +68,7 @@ function App() {
     dagre.layout(g);
 
     return nodes.map((node) => {
-      const { x, y } = g.node(node.id);
+      let { x, y } = g.node(node.id);
       return {
         ...node,
         position: { x, y },
@@ -86,20 +86,23 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col">
       <h1 className="bg-slate-300">Math Skill Tree</h1>
-      <ReactFlow
-        nodes={nodes}
-        edges={groupEdges}
-        nodeTypes={nodeTypes}
-        className="bg-slate-300"
-        minZoom={0.1}
-        fitView={true}
-      >
-        <MiniMap />
-        <Controls />
-      </ReactFlow>
-    </>
+      <div style={{ height: "100vh", width: "100vw" }}>
+        <ReactFlow
+          nodes={nodes}
+          edges={groupEdges}
+          nodeTypes={nodeTypes}
+          className="bg-slate-300"
+          minZoom={0.1}
+          fitView={true}
+          defaultViewport={{ x: 637.5, y: 150, zoom: 0.5 }}
+        >
+          <MiniMap />
+          <Controls />
+        </ReactFlow>
+      </div>
+    </div>
   );
 }
 
