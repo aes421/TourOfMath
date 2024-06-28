@@ -79,27 +79,30 @@ function App() {
     });
   };
 
-  const [nodes, setNodes] = useState<Node[]>(groupNodes);
+  const [nodes, setNodes] = useState<Node[]>();
 
   useEffect(() => {
-    const layoutedNodes = getLayoutedNodes(nodes, groupEdges);
+    const layoutedNodes = getLayoutedNodes(groupNodes, groupEdges);
     setNodes(layoutedNodes);
+    //useNodesInitialized();
   }, []);
 
   return (
     <div className="flex flex-col" style={{ width: "100vw", height: "100vh" }}>
       <h1 className="bg-slate-300">Math Skill Tree</h1>
-      <ReactFlow
-        nodes={nodes}
-        edges={groupEdges}
-        nodeTypes={nodeTypes}
-        className="bg-slate-300"
-        minZoom={0.1}
-        fitView
-      >
-        <MiniMap />
-        <Controls />
-      </ReactFlow>
+      {nodes && (
+        <ReactFlow
+          nodes={nodes}
+          edges={groupEdges}
+          nodeTypes={nodeTypes}
+          className="bg-slate-300"
+          minZoom={0.1}
+          fitView
+        >
+          <MiniMap />
+          <Controls />
+        </ReactFlow>
+      )}
     </div>
   );
 }
