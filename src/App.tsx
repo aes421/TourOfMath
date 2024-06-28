@@ -6,6 +6,7 @@ import ReactFlow, {
   Node,
   Edge,
   Position,
+  Panel,
 } from "reactflow";
 
 import GroupNode from "./nodes/GroupNode";
@@ -90,6 +91,15 @@ function App() {
         minZoom={0.1}
         fitView
       >
+        <Panel position="bottom-center">
+          <a href="https://www.buymeacoffee.com/thecouchcoder" target="_blank">
+            <img
+              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+              alt="Buy Me A Coffee"
+              style={{ height: "45px" }}
+            />
+          </a>
+        </Panel>
         <MiniMap />
         <Controls />
       </ReactFlow>
