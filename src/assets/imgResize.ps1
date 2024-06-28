@@ -2,18 +2,19 @@
 # Open PowerShell and navigate to the folder containing your images
 
 # Loop through all .jpg files in the current folder
-Get-ChildItem *.jpg | ForEach-Object {
+Get-ChildItem *.webp | ForEach-Object {
     $imageName = $_.BaseName
-    $inputImage = "$imageName.jpg"
+    $inputImage = "$imageName.webp"
     $outputImage = "$imageName.webp"
-    $Width = magick identify -format "%[w]" $_
-    $Height = magick identify -format "%[h]" $_
+    $Width = [int](magick identify -format %w $_)
+    $Height = [int](magick identify -format %h $_)
 
-    # echo $imageName
+    # echo $imageName $Width $Height
     # echo $inputImage
     # echo $outputImage
-    Run the ImageMagick command to resize the image and convert it to .webp
-    if ($Width -gt 300 -or $Height -gt 500) {
+    #Run the ImageMagick command to resize the image and convert it to .webp
+    if ( $Width -gt 300 -or $Height -gt 500 ) {
+        echo "resize"
         magick $inputImage -resize 300x500 $outputImage
     }
     else {
