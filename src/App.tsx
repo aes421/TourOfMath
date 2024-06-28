@@ -9,10 +9,11 @@ import ReactFlow, {
   Position,
 } from "reactflow";
 
-import "reactflow/dist/style.css";
 import GroupNode from "./nodes/GroupNode";
 import { subjects } from "./data/groupData";
 import dagre from "dagre";
+
+import "reactflow/dist/style.css";
 
 function App() {
   const nodeTypes: NodeTypes = {
@@ -86,21 +87,19 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" style={{ width: "100vw", height: "100vh" }}>
       <h1 className="bg-slate-300">Math Skill Tree</h1>
-      <div style={{ height: "100vh", width: "100vw" }}>
-        <ReactFlow
-          nodes={nodes}
-          edges={groupEdges}
-          nodeTypes={nodeTypes}
-          className="bg-slate-300"
-          minZoom={0.1}
-          defaultViewport={{ x: 637.5, y: 150, zoom: 0.5 }}
-        >
-          <MiniMap />
-          <Controls />
-        </ReactFlow>
-      </div>
+      <ReactFlow
+        nodes={nodes}
+        edges={groupEdges}
+        nodeTypes={nodeTypes}
+        className="bg-slate-300"
+        minZoom={0.1}
+        fitView
+      >
+        <MiniMap />
+        <Controls />
+      </ReactFlow>
     </div>
   );
 }
