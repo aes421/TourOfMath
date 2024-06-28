@@ -359,14 +359,12 @@ probabilityStatistics.requires(calculus);
 //probabilityStatistics.requires(discreteMath);
 probabilityStatistics.requires(linearAlgebra);
 
-discreteMath.requires(proofWriting);
-
 linearAlgebra.requires(algebra);
 
 complexVariables.requires(realAnalysis);
 //complexVariables.requires(linearAlgebra);
 
-//abstractAlgebra.requires(proofWriting);
+abstractAlgebra.requires(proofWriting);
 abstractAlgebra.requires(discreteMath);
 abstractAlgebra.requires(linearAlgebra);
 
@@ -380,6 +378,7 @@ realAnalysis.requires(proofWriting);
 graphTheory.requires(abstractAlgebra);
 
 topology.requires(realAnalysis);
+topology.requires(proofWriting);
 topology.requires(discreteMath); // maybe
 
 numberTheory.requires(abstractAlgebra);
