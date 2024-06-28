@@ -1,5 +1,4 @@
 import "./App.css";
-import { useEffect, useState } from "react";
 import ReactFlow, {
   MiniMap,
   Controls,
@@ -79,30 +78,22 @@ function App() {
     });
   };
 
-  const [nodes, setNodes] = useState<Node[]>();
-
-  useEffect(() => {
-    const layoutedNodes = getLayoutedNodes(groupNodes, groupEdges);
-    setNodes(layoutedNodes);
-    //useNodesInitialized();
-  }, []);
+  let nodes = getLayoutedNodes(groupNodes, groupEdges);
 
   return (
     <div className="flex flex-col" style={{ width: "100vw", height: "100vh" }}>
       <h1 className="bg-slate-300">Math Skill Tree</h1>
-      {nodes && (
-        <ReactFlow
-          nodes={nodes}
-          edges={groupEdges}
-          nodeTypes={nodeTypes}
-          className="bg-slate-300"
-          minZoom={0.1}
-          fitView
-        >
-          <MiniMap />
-          <Controls />
-        </ReactFlow>
-      )}
+      <ReactFlow
+        nodes={nodes}
+        edges={groupEdges}
+        nodeTypes={nodeTypes}
+        className="bg-slate-300"
+        minZoom={0.1}
+        fitView
+      >
+        <MiniMap />
+        <Controls />
+      </ReactFlow>
     </div>
   );
 }
