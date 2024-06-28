@@ -10,7 +10,7 @@ function GroupNode(props: NodeProps) {
       <ul className="flex flex-row">
         {group.books.map((b) => (
           <li>
-            <a href={b.sourceUrl} target="_blank">
+            <a href={b.sourceUrl} style={{ color: "#000000" }} target="_blank">
               <Book key={b.name} book={b}></Book>
             </a>
           </li>
