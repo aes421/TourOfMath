@@ -95,7 +95,6 @@ function App() {
           nodeTypes={nodeTypes}
           className="bg-slate-300"
           minZoom={0.1}
-          fitView={true}
           defaultViewport={{ x: 637.5, y: 150, zoom: 0.5 }}
         >
           <MiniMap />
